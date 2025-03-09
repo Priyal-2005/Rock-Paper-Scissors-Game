@@ -3,6 +3,8 @@ let compScore = 0;
 
 const choices = document.querySelectorAll(".choice");
 const msg = document.querySelector("#msg")
+const userScorePara = document.querySelector("#user-score");
+const compScorePara = document.querySelector("#comp-score");
 
 const genCompChoice = () => {
     // randomly generate either rock, paper or scissors
@@ -16,20 +18,21 @@ const genCompChoice = () => {
 
 
 const drawGame = () => {
-    console.log("This game was a Draw!")
     msg.innerText = "Game was a Draw. Play Again!"
     msg.style.backgroundColor = "#081b31";
 };
 
 
 const showWinner = (userWin, userChoice, compChoice) => {
-    if(userWin == true) {
-        console.log("You Win!");
+    if(userWin) {
+        userScore++;
+        userScorePara.innerText = userScore;
         msg.innerText = `You win! ${userChoice} beats ${compChoice}`;
         msg.style.backgroundColor = "green";
     }
     else{
-        console.log("You Lose!");
+        compScore++;
+        compScorePara.innerText = compScore;
         msg.innerText = `You Lost! ${compChoice} beats ${userChoice}`;
         msg.style.backgroundColor = "red";
     }
@@ -37,10 +40,8 @@ const showWinner = (userWin, userChoice, compChoice) => {
 
 
 const playGame = (userChoice) => {
-    console.log("user choice", userChoice);
     // Generate computer choice -> modular programming
     const compChoice = genCompChoice();
-    console.log("comp choice", compChoice);
 
     if(userChoice === compChoice) {
         //Draw Game
@@ -48,19 +49,19 @@ const playGame = (userChoice) => {
     }
     else {
         let userWin = true;
-        if(userChoice === "rock") {
+        if(userChoice === "Rock") {
             // scissors, paper
-            userWin = compChoice === "paper" ? false : true;
+            userWin = compChoice === "Paper" ? false : true;
             //user = rock, comp = paper then user loses else user wins
         }
-        else if(userChoice === "paper"){
+        else if(userChoice === "Paper"){
             // rock, scissors
-            userWin = compChoice === "scissors" ? false : true;
+            userWin = compChoice === "Scissors" ? false : true;
             // user = paper, comp = scissors then user loses else user wins
         }
         else{
             // rock, paper
-            compChoice === "rock" ? false : true;
+            userWin = compChoice === "Rock" ? false : true;
             // user = scissors, comp = rock then user loses else user wins 
         }
         showWinner(userWin, userChoice, compChoice);
@@ -71,7 +72,6 @@ const playGame = (userChoice) => {
 choices.forEach((choice) => {
     choice.addEventListener("click", () => {
         const userChoice = choice.getAttribute("id")
-        console.log(`choice ${userChoice} was clicked`)
         playGame(userChoice);
-    })
+    });
 });
