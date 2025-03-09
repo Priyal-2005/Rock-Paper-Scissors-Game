@@ -19,6 +19,7 @@ h1{
     margin-top: 5rem;
 }
 
+
 .choice{
     height: 165px;
     width: 165px;
@@ -47,6 +48,7 @@ img{
     align-items: center;
     font-size: 2rem;
     margin-top: 3rem;
+    margin-bottom: 3rem;
     gap: 5rem;
 }
 
@@ -54,7 +56,7 @@ img{
     font-size: 4rem;
 }
 
-.msg-contianer{
+.msg-container{
     margin-top: 5rem;
 }
 
@@ -65,4 +67,14 @@ img{
     display: inline;
     padding: 1rem;
     border-radius: 1rem;
+}
+
+.reset-btn{
+    background-color: #081b31;
+    color: white;
+    font-size: 2rem;
+    display: inline;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-top: 3rem;
 }
