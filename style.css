@@ -77,3 +77,8 @@ img{
     border-radius: 1rem;
     margin-top: 3rem;
 }
+
+.reset-btn:hover{
+    opacity: 0.85;
+    cursor: pointer;
+}
