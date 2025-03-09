@@ -5,6 +5,7 @@ const choices = document.querySelectorAll(".choice");
 const msg = document.querySelector("#msg")
 const userScorePara = document.querySelector("#user-score");
 const compScorePara = document.querySelector("#comp-score");
+const resetBtn = document.querySelector(".reset-btn");
 
 const genCompChoice = () => {
     // randomly generate either rock, paper or scissors
@@ -68,6 +69,14 @@ const playGame = (userChoice) => {
     }
 };
 
+resetBtn.addEventListener("click", () => {
+    userScore = 0;
+    compScore = 0;
+    userScorePara.innerText = userScore;
+    compScorePara.innerText = compScore;
+    msg.innerText = "Play your move";
+    msg.style.backgroundColor = "#081b31";
+});
 
 choices.forEach((choice) => {
     choice.addEventListener("click", () => {
